@@ -5,14 +5,7 @@ import firebase from 'firebase';
 import serviceAccount from '../../../config/learn-c3079-firebase-adminsdk-hnyia-4d9e474ec4.json';
 import { values } from 'lodash';
 
-firebase.initializeApp({
-  apiKey: 'AIzaSyDPgk7t4U_XRxRijoUEQQW7jUGVRCRFcSs',
-  authDomain: 'learn-c3079.firebaseapp.com',
-  databaseURL: 'https://learn-c3079.firebaseio.com/',
-  projectId: 'learn-c3079',
-  storageBucket: 'learn-c3079.appspot.com',
-  messagingSenderId: '1096814500959'
-});
+
 
 class MessageList extends React.Component {
   constructor(props) {
@@ -26,7 +19,7 @@ class MessageList extends React.Component {
       .database()
       .ref('messages');
     messageRef.on('child_added', msg => {
-      console.log(msg);
+      
       if (this.state.messages[msg.key]) {
         return;
       }
